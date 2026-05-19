@@ -1,6 +1,6 @@
-# Calcul de carre avec FastAPI et Streamlit
+# Square Calculator with FastAPI and Streamlit
 
-Projet individuel MLOps minimal compose d'un frontend Streamlit et d'une API FastAPI. Le frontend envoie un entier au backend, puis l'API retourne son carre apres validation Pydantic.
+Minimal individual MLOps project composed of a Streamlit frontend and a FastAPI API. The frontend sends an integer to the backend, then the API returns its square after Pydantic validation.
 
 ## Architecture
 
@@ -22,62 +22,62 @@ docker-compose.yml
 README.md
 ```
 
-## Routes API
+## API Routes
 
 `GET /`
-Retourne un message de bienvenue.
+Returns a welcome message.
 
 `GET /health`
-Retourne l'etat de sante de l'API.
+Returns the API health status.
 
 `POST /calcul`
-Attend un JSON contenant un entier strict, puis retourne son carre.
+Expects JSON containing a strict integer, then returns its square.
 
-Exemple de payload :
-
-```json
-{
-  "nombre": 4
-}
-```
-
-Exemple de reponse :
+Payload example:
 
 ```json
 {
-  "nombre": 4,
-  "resultat": 16
+  "number": 4
 }
 ```
 
-## Lancement avec Docker Compose
+Response example:
+
+```json
+{
+  "number": 4,
+  "result": 16
+}
+```
+
+## Run with Docker Compose
 
 ```bash
 docker compose up --build
 ```
 
-Services disponibles :
+Available services:
 
 - Frontend Streamlit : `http://localhost:8501`
 - Backend FastAPI : `http://localhost:8000`
 - Documentation Swagger : `http://localhost:8000/docs`
 
-## Tests backend
+## Backend Tests
 
-Depuis le dossier `backend` :
+From the `backend` directory:
 
 ```bash
 pip install fastapi "uvicorn[standard]" pydantic loguru pytest
 pytest
 ```
 
-## Integration continue
+## Continuous Integration
 
-Le workflow GitHub Actions `.github/workflows/test.yml` installe les dependances backend et lance `pytest` a chaque `push` et `pull_request`.
+The GitHub Actions workflow `.github/workflows/test.yml` installs backend dependencies and runs `pytest` on every `push` and `pull_request`.
 
 ## Logs
 
-Les logs applicatifs sont geres avec Loguru dans :
+Application logs are handled with Loguru in:
 
-- `backend/main.py` pour les appels aux routes FastAPI
-- `frontend/app.py` pour les appels HTTP vers l'API
+- `backend/main.py` for FastAPI route calls
+- `frontend/app.py` for HTTP calls to the API

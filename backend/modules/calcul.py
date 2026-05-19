@@ -1,3 +1,3 @@
-def calcul(nombre: int) -> int:
-    """Retourne le carre d'un entier."""
-    return nombre * nombre
+def calcul(number: int) -> int:
+    """Return the square of an integer."""
+    return number * number
