@@ -1,0 +1,25 @@
+name: Backend tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install backend dependencies
+        run: pip install fastapi "uvicorn[standard]" pydantic loguru pytest
+
+      - name: Run backend tests
+        working-directory: backend
+        run: pytest
