@@ -7,6 +7,7 @@ Minimal individual MLOps project composed of a Streamlit frontend and a FastAPI 
 ```text
 frontend/
   app.py
+  requirements.txt
   Dockerfile
 backend/
   main.py
