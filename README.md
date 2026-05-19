@@ -98,14 +98,14 @@ Published tags:
 Pull and run the backend image:
 
 ```bash
-docker pull <dockerhub-username>/square-backend:latest
+docker pull alexxjs/square-backend:latest
 docker run --rm -p 8000:8000 <dockerhub-username>/square-backend:latest
 ```
 
 Pull and run the frontend image:
 
 ```bash
-docker pull <dockerhub-username>/square-frontend:latest
+docker pull alexxjs/square-frontend:latest
 docker run --rm -p 8501:8501 -e BACKEND_URL=http://host.docker.internal:8000 <dockerhub-username>/square-frontend:latest
 ```
 
