@@ -10,6 +10,7 @@ frontend/
   Dockerfile
 backend/
   main.py
+  requirements.txt
   modules/
     calcul.py
   tests/
@@ -67,7 +68,7 @@ Available services:
 From the `backend` directory:
 
 ```bash
-pip install fastapi "uvicorn[standard]" pydantic loguru pytest
+pip install -r requirements.txt pytest
 pytest
 ```
 
